@@ -1,5 +1,5 @@
 # RGBPicker
-RGBPicker alllows you to pick a color and convert it to hex
+RGBPicker allows you to pick a color and convert it to hex
 
 Written in SwiftUI
 
