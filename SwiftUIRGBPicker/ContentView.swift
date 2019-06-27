@@ -49,25 +49,24 @@ struct ContentView : View {
                     .accentColor(Color.black)
                     .padding()
                     .background(Color.red)
-                }
+                } .cornerRadius(CGFloat(9))
                 .presentation($didShowAlert) {
-                    Alert(title: Text("Hex Value is :"), message: Text(convertToHex(rValue: rValue, gValue: gValue, bValue: bValue)),
-                          primaryButton: .default(Text("OK")),
-                          secondaryButton: .cancel() )
+                    Alert(title: Text("Hex Value is "), message: Text(convertToHex(rValue: rValue, gValue: gValue, bValue: bValue)), dismissButton: .default(Text("OK")))
                 }
             }
         }
     }
 }
 
+
 func convertToHex(rValue : Double, gValue : Double, bValue : Double) -> String {
-    var rHex : String
-    var gHex : String
-    var bHex : String
+    var rHex = ""
+    var gHex = ""
+    var bHex = ""
     
-    rHex = String(format : "%02X", Int(rValue))
-    gHex = String(format : "%02X", Int(gValue))
-    bHex = String(format : "%02X", Int(bValue))
+    rHex = String(Int(rValue*255), radix: 16, uppercase: true)
+    gHex = String(Int(gValue*255), radix: 16, uppercase: true)
+    bHex = String(Int(bValue*255), radix: 16, uppercase: true)
     
     return rHex + gHex + bHex
 }
@@ -79,3 +78,4 @@ struct ContentView_Previews : PreviewProvider {
     }
 }
 #endif
+
